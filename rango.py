@@ -1,7 +1,7 @@
 from talon import Module, Context, actions, clip, settings, app
 import json
 import time
-from typing import Any, Union
+from typing import Any, Union, Optional
 
 mod = Module()
 ctx = Context()
@@ -178,7 +178,10 @@ class Actions:
         """Executes a Rango command"""
 
     def rango_command_without_target(
-        actionType: str, arg: Union[str, float, None] = None
+        actionType: str,
+        arg: Union[str, float, None] = None,
+        arg2: Optional[str] = None,
+        arg3: Optional[bool] = None
     ):
         """Executes a Rango command without a target"""
 
@@ -207,7 +210,10 @@ class UserActions:
         send_request_and_wait_for_response(action)
 
     def rango_command_without_target(
-        actionType: str, arg: Union[str, float, None] = None
+        actionType: str,
+        arg: Union[str, float, None] = None,
+        arg2: Optional[str] = None,
+        arg3: Optional[bool] = None
     ):
         action = {"type": actionType}
         if arg:
